@@ -2,12 +2,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Articulo {
+    private int id;
     private String codigo;
     private String nombre;
     private double precio;
     private String idProveedor;
     private int cantidadRestante;
     private int tiempoEnvio;
+
+    public Articulo() {}
 
     public Articulo(String codigo, String nombre, double precio, String idProveedor, int cantidadRestante, int tiempoEnvio) {
         this.codigo = codigo;
@@ -20,6 +23,7 @@ public class Articulo {
 
     public Articulo(ResultSet rs) {
         try {
+            this.id = rs.getInt("ID");
             this.codigo = rs.getString("CODIGO");
             this.nombre = rs.getString("NOMBRE");
             this.precio = rs.getDouble("PRECIO");
@@ -41,5 +45,10 @@ public class Articulo {
 
     public double GetPrecio() {
         return this.precio;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("ID: %d\nCODIGO: %s\nNOMBRE: %s\nPRECIO: $%.2f\nID_PROVEEDOR: %s\nCANTIDAD_RESTANTE: %d\nTIEMPO_ENVIO: %d días", this.id, this.codigo, this.nombre, this.precio, this.idProveedor, this.cantidadRestante, this.tiempoEnvio);
     }
 }
