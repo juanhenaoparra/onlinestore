@@ -30,11 +30,14 @@
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="deca5cb7-8a87-430b-a07a-c60b173e9fd6">
       <console name="Main DB" type="STANDARD" schema="main" session="Main"><![CDATA[select * from "Articulos";
+select * from "Clientes";
 
 SELECT * FROM Articulos WHERE CODIGO = 'ART0001';
 
 INSERT INTO "Articulos"("ID","CODIGO","NOMBRE","PRECIO","ID_PROVEEDOR","CANTIDAD_RESTANTE") VALUES (1,'ART0001','SPEAKER BLUETOOTH','15.0','PRV0001',10);
-INSERT INTO "Articulos"("ID","CODIGO","NOMBRE","PRECIO","ID_PROVEEDOR","CANTIDAD_RESTANTE") VALUES (2,'ART0001','HEADPHONES','10.0','PRV0001',7);]]></console>
+INSERT INTO "Articulos"("ID","CODIGO","NOMBRE","PRECIO","ID_PROVEEDOR","CANTIDAD_RESTANTE") VALUES (2,'ART0001','HEADPHONES','10.0','PRV0001',7);
+
+SELECT a.* FROM Articulos as a, Proveedores as p WHERE a.CODIGO = '' AND a.TIEMPO_ENVIO <= 8 AND a.ID_PROVEEDOR = p.id AND p.ciudad = 'BOGOTA' ORDER BY a.TIEMPO_ENVIO ASC;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -46,7 +49,7 @@ INSERT INTO "Articulos"("ID","CODIGO","NOMBRE","PRECIO","ID_PROVEEDOR","CANTIDAD
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="deca5cb7-8a87-430b-a07a-c60b173e9fd6" dataset="main.Proveedores" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="deca5cb7-8a87-430b-a07a-c60b173e9fd6" dataset="main.Articulos" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="deca5cb7-8a87-430b-a07a-c60b173e9fd6" dataset="main.Clientes" active-filter-id="" />
+    <filter-actions connection-id="deca5cb7-8a87-430b-a07a-c60b173e9fd6" dataset="main.Clientes" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
